@@ -6,7 +6,14 @@ module StaticErrorPages
     end
 
     def show
-      render action: params[:code]
+      render action: find_action
+    end
+
+    private
+
+    def find_action
+      error_code = params[:code].to_s.presence_in StaticErrorPages.supported_errors
+      error_code || "404"
     end
   end
 end
