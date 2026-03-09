@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class NavigationTest < ActionDispatch::IntegrationTest
-  fixtures :all
-
-  # test "the truth" do
-  #   assert true
-  # end
+  test "render the error page" do
+    get "/static_error_pages/404"
+    assert_response :success
+    assert_template '404'
+  end
 end
-
