@@ -6,4 +6,10 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template '404'
   end
+
+  test "ignore unsupported pages" do
+    get "/static_error_pages/unknown"
+    assert_response :success
+    assert_template '404'
+  end
 end
