@@ -23,4 +23,9 @@ class NavigationTest < ActionDispatch::IntegrationTest
     get "/static_error_pages/unknown"
     assert_response :not_found
   end
+
+  test "ignore unsupported paths" do
+    get "/logs/unknown"
+    assert_response :not_found
+  end
 end

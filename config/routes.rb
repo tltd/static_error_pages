@@ -1,6 +1,4 @@
 StaticErrorPages::Engine.routes.draw do
-  StaticErrorPages.supported_errors.each do |code|
-    get ":code" => "error#show"
-  end
+  get ":code" => "error#show", constraints: { code: /#{StaticErrorPages.supported_errors.join('|')}/ }
 end
 
