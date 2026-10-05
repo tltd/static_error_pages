@@ -11,5 +11,4 @@ gem "rails-controller-testing"
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use debugger
-# gem 'debugger'
+gem 'debug'
