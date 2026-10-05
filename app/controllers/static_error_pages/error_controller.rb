@@ -13,7 +13,7 @@ module StaticErrorPages
 
     def find_action
       error_code = params[:code].to_s.presence_in StaticErrorPages.supported_errors
-      error_code || "404"
+      error_code or raise "Unsupported error code: #{params[:code]}"
     end
   end
 end
